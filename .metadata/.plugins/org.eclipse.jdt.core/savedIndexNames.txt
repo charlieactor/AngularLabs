@@ -1,0 +1,3 @@
+INDEX VERSION 1.130+/Users/Charlie/SD/ng/.metadata/.plugins/org.eclipse.jdt.core
+1712166398.index
+3188016314.index
