@@ -1,0 +1,35 @@
+angular.module("appModule")
+	   .factory("todoService", function() {
+		   var service = {};
+		   
+		   service.index = function() {
+			   return todos;
+		   }
+		   
+		   service.create = function(todo) {
+			   
+		   }
+		   
+		   var todos = [
+			      {
+				        id : 1,
+				        task : 'Say "Hmmmmmmm"',
+				        description : 'Bother Andy relentlessly',
+				        completed : true
+				      },
+				      {
+				        id : 2,
+				        task : 'Eat dat lunch',
+				        description : 'eat it up yall',
+				        completed : false
+				      },
+				      {
+				        id : 3,
+				        task : 'Sort life out',
+				        description : '',
+				        completed :  false
+				      }
+				    ];
+		   
+		   return service;
+});

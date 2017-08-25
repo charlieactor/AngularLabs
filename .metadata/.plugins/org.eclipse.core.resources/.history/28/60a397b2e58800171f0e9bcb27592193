@@ -1,0 +1,13 @@
+<ul>
+ <li ng-repeat="item in  vm.list">{{item.name}}</li>
+</ul>
+<p>Total Number of items: {{vm.getNumItems()}}</p>
+<button ng-click="vm.log('WHOA')">WHOA</button>
+<br>
+<form>
+  <input type="text" placeholder="Name" ng-model="prod.name"/><br />
+  <input type="text" placeholder="Price" ng-model="prod.price"/><br />
+  <input type="text" placeholder="Image URL" ng-model="prod.imgRrl"/><br />
+  <input type="number" placeholder="rating" ng-model="prod.Rating"/><br />
+  <input type="submit" value="Add Item" />
+</form>

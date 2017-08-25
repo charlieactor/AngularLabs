@@ -1,0 +1,24 @@
+<h1>NG TODO - {{vm.todoCount()}} Tasks Remain</h1>
+
+<form>
+	<input type="text" placeholder="Add new task" ng-model="todo.task">
+	<input type="submit" value="Add" ng-click="vm.addTask(todo); todo = {};">
+</form>
+<br>
+<div>
+<table>
+	<thead>
+		<tr>
+			<td><strong>Task</strong></td>
+			<td><strong>Completed</strong></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="thing in vm.todos">
+			<td>{{thing.task}}</td>
+			<td>{{thing.completed}}</td>
+		</tr>
+	</tbody>
+
+</table>
+</div>

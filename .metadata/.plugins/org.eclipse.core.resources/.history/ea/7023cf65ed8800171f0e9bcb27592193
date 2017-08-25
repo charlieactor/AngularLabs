@@ -1,0 +1,17 @@
+<h3>ng TODO</h3>
+
+<table>
+	<thead>
+		<tr>
+			<td>Task</td>
+			<td>Completed</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="thing in vm.todos">
+			<td>{{vm.todos.thing.task}}</td>
+			<td>{{vm.todos.thing.completed</td>
+		</tr>
+	</tbody>
+
+</table>

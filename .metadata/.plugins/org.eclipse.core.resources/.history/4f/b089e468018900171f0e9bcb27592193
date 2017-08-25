@@ -1,0 +1,37 @@
+<div class="container">
+<h1>NG TODO - {{vm.todoCount()}} Tasks Remain</h1>
+
+<form>
+	<input type="text" placeholder="Add new task" ng-model="todo.task">
+	<input type="submit" value="Add" ng-click="vm.addTask(todo); todo = {};">
+</form>
+<br>
+<div>
+	<h3>{{vm.selected.task}}</h3>
+	<ul>
+		<li></li>
+	</ul>
+	<h4>{{vm.selected.task}}</h3>
+	<h3>{{vm.selected.task}}</h3>
+	<h3>{{vm.selected.task}}</h3>
+</div>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<td><strong>Task</strong></td>
+			<td><strong>Mark</strong></td>
+			<td><strong>Completed</strong></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="thing in vm.todos">
+			<td>{{thing.task}}</td>
+			<td>
+				<input type="checkbox" ng-model="thing.completed">
+			</td>
+			<td>{{thing.completed}}</td>
+		</tr>
+	</tbody>
+
+</table>
+</div>

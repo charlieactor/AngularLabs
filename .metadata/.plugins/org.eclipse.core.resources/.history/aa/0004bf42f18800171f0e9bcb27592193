@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html ng-app="appModule">
+<head>
+<meta charset="UTF-8">
+<title>To Do</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js"></script>
+<script src="app/appModule/app.module.js"></script>
+<script src="app/appModule/todoList.component.js"></script>
+</head>
+<body>
+	<todo-list>LOADING BISH</todo-list>
+</body>
+</html>

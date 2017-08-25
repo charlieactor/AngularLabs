@@ -1,0 +1,7 @@
+<ul>
+<li>{{vm.list[0]}}</li>
+<li>{{vm.list[0]}}</li>
+<li>{{vm.list[0]}}</li>
+<li>{{vm.list[0]}}</li>
+<li>{{vm.list[0]}}</li>
+</ul>

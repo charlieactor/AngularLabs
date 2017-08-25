@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app="appModule">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello Angular</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js"></script>
+  <script src="app/appModule/app.module.js"></script>
+  <script src="app/appModule/productList.component.js"></script>
+  <script src="app/appModule/helloWorld.component.js"></script>
+  <script src="app/appModule/helloWorld.component.js"></script>
+</head>
+<body>
+  <h1>{{'HELLO THERE DOCTOR NG'}}</h1>
+  <hello-world>Loading...</hello-world>
+  <product-list>Loading...</product-list>
+</body>
+</html>

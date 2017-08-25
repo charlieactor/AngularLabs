@@ -1,0 +1,28 @@
+angular.module('appModule')
+			  .component('todoList', {
+				 templateUrl : "app/appModule/todoList.component.html",
+				 controller : function() {
+					 var vm = this;
+					 
+					 vm.todos = [
+					      {
+					        id : 1,
+					        task : 'Say "Hmmmmmmm"',
+					        description : 'Bother Andy relentlessly',
+					        completed : true
+					      },
+					      {
+					        id : 2,
+					        task : 'Get Liz back',
+					        description : '',
+					        completed : false
+					      },
+					      {
+					        id : 3,
+					        task : 'Sort life out',
+					        description : '',
+					        completed :  false
+					      }
+					    ];
+				 }
+			  });

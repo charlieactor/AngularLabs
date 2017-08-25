@@ -1,0 +1,14 @@
+angular.module('appModule')
+			  .component('productList', {
+				  templateUrl : 'app/appModule/productList.component.html',
+				  controller  : function() {
+					  //Step 1 - label vm as the component (also the controller?)
+					  var vm = this;
+					  //Step 2 - add items to the vm object
+					  
+				  },
+			  	controllerAs : "vm"
+			  
+					  
+				  
+			  });

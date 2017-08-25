@@ -1,0 +1,4 @@
+<ul>
+ <li ng-repeat="item in  vm.list">{{item}}</li>
+</ul>
+<p>Total Number of items: {{vm.getNumItems()}}</p>

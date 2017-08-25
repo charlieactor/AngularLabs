@@ -1,0 +1,6 @@
+<ul>
+ <li ng-repeat="item in  vm.list">{{item.name}}</li>
+</ul>
+<p>Total Number of items: {{vm.getNumItems()}}</p>
+<button ng-click="vm.log('WHOA')">WHOA</button>
+<br>

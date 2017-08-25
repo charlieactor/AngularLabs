@@ -1,0 +1,26 @@
+angular.module('appModule')
+			  .component('productList', {
+				  templateUrl : 'app/appModule/productList.component.html',
+				  controller  : function() {
+					  //Step 1 - label vm as the component (also the controller?)
+					  var vm = this;
+					  
+					  vm.products = [];
+					  
+					  vm.getNumItems = function() {
+						return vm.products.length;  
+					  };
+					  
+					  vm.log = function(string) {
+						  console.log(string);
+					  };
+					  
+					  vm.addItem = function(prod) {
+						  console.log(prod);
+						  vm.list.push(angular.copy(prod));
+					  }
+					  
+					  
+				  },
+			  	 controllerAs : "vm"
+			  });

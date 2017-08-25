@@ -1,0 +1,6 @@
+angular.module("appModule")
+	   .factory("todoService", function() {
+		   var service = {};
+		   
+		   return service;
+});
