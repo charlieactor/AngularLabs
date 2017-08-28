@@ -1,0 +1,14 @@
+CREATE TABLE `todo`(
+       `id` int(11) NOT NULL AUTO_INCREMENT,
+       `task` varchar(55) NOT NULL,
+       `description` text,
+       `completed` tinyint(1),
+       `user_id` int(11) NOT NULL,
+       `due_date` varchar(50),
+       `complete_date` varchar(50),
+       `created_at` timestamp NOT NULL default '0000-00-00 00:00:00',
+       `updated_at` timestamp NOT NULL on update CURRENT_TIMESTAMP,
+     PRIMARY KEY(`id`),
+     FOREIGN KEY(`user_id`)
+       REFERENCES `user`(`id`)
+     );

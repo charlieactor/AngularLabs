@@ -1,5 +1,5 @@
 <div class="container">
-<h1>NG TODO <span class="label label-success">{{vm.todoCount()}}</span></h1>
+<h1>NG TODO <span ng-class="vm.incompleteCount()" class="label label-success">{{vm.todoCount()}}</span></h1>
 
 <form ng-hide="vm.selected">
 	<input type="text" placeholder="Add new task" ng-model="todo.task">
@@ -32,6 +32,8 @@
 	<button type="button" class="btn btn-danger" ng-click="vm.editTodo = null">Cancel</button>
 	<button type="button" class="btn btn-info" ng-click="vm.updateTodo(vm.editTodo)">Save</button>
 </form>
+<button type="btn" ng-hide="vm.incompleteSort" class="btn btn-info", ng-click="vm.incompleteSort = true;">Show Incomplete Tasks</button>
+<button type="btn" ng-hide="!vm.incompleteSort" class="btn btn-info", ng-click="vm.incompleteSort = false;">Show All Tasks</button>
 <table class="table table-striped well" ng-hide="vm.selected">
 	<thead>
 		<tr>
@@ -42,10 +44,10 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="thing in vm.todos">
+		<tr ng-repeat="thing in vm.todos | incomplete:vm.incompleteSort | orderBy:'task'" ng-class="vm.crossOut(thing)">
 			<td ng-click="vm.displayTodo(thing)">{{thing.task}}</td>
 			<td>
-				<input type="checkbox" ng-model="thing.completed">
+				<input type="checkbox" ng-change="vm.updateTodo(thing, 'stay');" ng-model="thing.completed">
 			</td>
 			<td>{{thing.completed}}</td>
 			<td>

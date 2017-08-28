@@ -1,0 +1,60 @@
+<div class="container">
+<!-- MAKE A NEW POKE -->
+<div ng-hide="vm.selected" class="well">
+	<h2>Create a new Pokemon!</h2>
+	<form>
+		<input placeholder="Name" ng-model="newPoke.name"><br>
+		<input placeholder="Height" type="number" ng-model="newPoke.height"><br>
+		<input placeholder="Weight" type="number" ng-model="newPoke.weight"><br>
+		<input placeholder="Experience" type="number" ng-model="newPoke.exp"><br>
+		<input placeholder="Id" type="number" ng-model="newPoke.pokeId"><br>
+		<input placeholder="Image URL" ng-model="newPoke.img"><br>
+		<input placeholder="Description" ng-model="newPoke.description"><br><br>
+		<button type="button" class="btn btn-success" ng-click="vm.createPokemon(newPoke); newPoke = {}">Make dat Pokemon!</button>
+	</form>
+</div>
+<!-- POKE SORT BY TYPE -->
+<div class="well" ng-hide="vm.selected">
+	<button type="btn" class="btn btn-info" ng-click="vm.sortBy='all'">All</button>
+	<button type="btn" class="btn btn-info" ng-click="vm.sortBy='normal'">Normal</button>
+	<button type="btn" class="btn btn-info" ng-click="vm.sortBy='poison'">Poison</button>
+	<button type="btn" class="btn btn-info" ng-click="vm.sortBy='water'">Water</button>
+	<button type="btn" class="btn btn-info" ng-click="vm.sortBy='fighting'">Fighting</button>
+	<button type="btn" class="btn btn-info" ng-click="vm.sortBy='fire'">Fire</button>
+	<button type="btn" class="btn btn-info" ng-click="vm.sortBy='bug'">Bug</button>
+	<button type="btn" class="btn btn-info" ng-click="vm.sortBy='flying'">Flying</button>
+	<button type="btn" class="btn btn-info" ng-click="vm.sortBy='electric'">Electric</button>
+	<button type="btn" class="btn btn-info" ng-click="vm.sortBy='ground'">Ground</button>
+	<button type="btn" class="btn btn-info" ng-click="vm.sortBy='rock'">Rock</button>
+	<button type="btn" class="btn btn-info" ng-click="vm.sortBy='psychic'">Psychic</button>
+	<button type="btn" class="btn btn-info" ng-click="vm.sortBy='ghost'">Ghost</button>
+	<button type="btn" class="btn btn-info" ng-click="vm.sortBy='dragon'">Dragon</button>
+</div>
+<!-- VIEW ALL POKES -->
+<div ng-hide="vm.selected" class="well" ng-repeat="poke in vm.pokemons | pokeType:vm.sortBy | orderBy:'pokeId'">
+	<ul ng-click="vm.showPokemon(poke.pokeId)">
+		<li>{{poke.name}}</li>
+		<li>{{poke.pokeId}}</li>
+		<li>
+			<img src="{{poke.img}}"/>
+		</li>
+	</ul>
+</div>
+
+<!-- VIEW INDIVIDUAL POKE -->
+<div ng-show="vm.selected" class="well">
+	<ul>
+		<li>{{vm.selected.name}}</li>
+		<li>{{vm.selected.pokeId}}</li>
+		<li>
+			<img src="{{vm.selected.img}}"/>
+		</li>
+		<li>{{vm.selected.description}}</li>
+		<li>Height: {{vm.selected.height | number:1}}</li>
+		<li>Weight: {{vm.selected.weight | number:1}}</li>
+	</ul>
+	<button type="button" class="btn btn-success" ng-click="vm.selected = null">View all Pokes</button>
+	<button type="button" class="btn btn-danger" ng-show="vm.selected.pokeId > 151" ng-click="vm.deletePoke(vm.selected.pokeId); vm.selected = null;">Delete</button>
+	
+</div>
+</div>

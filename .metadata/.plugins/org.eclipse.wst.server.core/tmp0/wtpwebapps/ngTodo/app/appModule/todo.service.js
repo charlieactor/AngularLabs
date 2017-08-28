@@ -1,56 +1,50 @@
 angular.module("appModule")
-	   .factory("todoService", function() {
+	   .factory("todoService", function($http, $filter) {
 		   var service = {};
 		   
+		   var BASE_URL = "http://localhost:8080/ngTodo/api/users/1/todos";
+		   
 		   service.index = function() {
-			   return todos;
+			   return $http({
+				   method  : "GET",
+				   url     : BASE_URL
+			   });
 		   }
 		   
 		   service.create = function(todo) {
-			   todos.push(angular.copy(todo));
-		   }
+			   todo.completed = false;
+			   return $http({
+				   method   :  "POST",
+				   url      :  BASE_URL,
+				   headers  : {
+				        'Content-Type' : 'application/json'
+				      },
+				  data      : todo
+			   });
+		   };
 		   
 		   service.update = function(todo) {
-			   var id = todo.id;
-				var updatey;
-				service.index().forEach(function(val, idx) {
-					if (val.id == todo.id) {
-						updatey = val;
-					}
-				});
-				updatey.task = todo.task;
-				updatey.description = todo.description;
-				updatey.completed = todo.completed;
+			    var id = todo.id;
+			    todo.completeDate = "";
+			    if (todo.completed == true) {
+				    	todo.completeDate = $filter('date')(Date.now(), 'MM/dd/yyyy');
+			    } 
+			    return $http({
+			    		method   :   "PUT",
+			    		url      :   BASE_URL + "/" + id,
+			    		headers  : {
+					        'Content-Type' : 'application/json'
+					      },
+					  data   : todo
+			    })
 		   }
 		   
 		   service.destroy = function(id) {
-			   service.index().forEach(function(val, idx) {
-				   if (id == val.id) {
-					   todos.splice(idx, 1);
-				   }
-			   })
+			   return $http({
+				   method  :  "DELETE",
+				   url     :  BASE_URL + "/" + id
+			   });
 		   }
-		   
-		   var todos = [
-			      {
-				        id : 1,
-				        task : 'Say "Hmmmmmmm"',
-				        description : 'Bother Andy relentlessly',
-				        completed : true
-				      },
-				      {
-				        id : 2,
-				        task : 'Eat dat lunch',
-				        description : 'eat it up yall',
-				        completed : false
-				      },
-				      {
-				        id : 3,
-				        task : 'Sort life out',
-				        description : '',
-				        completed :  false
-				      }
-				    ];
 		   
 		   return service;
 });
